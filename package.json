@@ -1,0 +1,41 @@
+{
+    "name": "andyh-autocomplete",
+    "version": "1.0.0",
+    "description": "Simple Vue JS Auto Complete Search",
+    "Author": "AndyH",
+    "main": "dist/andyh-autocomplete.umd.js",
+    "module": "dist/andyh-autocomplete.esm.js",
+    "unpkg": "dist/andyh-autocomplete.min.js",
+    "browser": {
+        "./sfc": "/src/andyh-autocomplete.vue"
+    },
+    "scripts": {
+        "serve": "vue serve --open src/andyh-autocomplete.vue",
+        "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+        "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/andyh-autocomplete.umd.js",
+        "build:es": "rollup --config build/rollup.config.js --format es --file dist/andyh-autocomplete.esm.js",
+        "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/andyh-autocomplete.min.js",
+        "prepublish": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andy3471/andyh-autocomplete.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/andy3471/andyh-autocomplete/issues"
+    },
+    "homepage": "https://github.com/andy3471/andyh-autocomplete#readme",
+    "devDependencies": {
+        "@vue/cli-service": "^4.1.2",
+        "rollup": "^1.29.0",
+        "rollup-plugin-buble": "^0.19.8",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-vue": "^5.1.5",
+        "sass": "^1.24.5",
+        "sass-loader": "^8.0.2",
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
+    }
+}
