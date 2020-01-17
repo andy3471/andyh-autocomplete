@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   props: {
     placeholder: {
@@ -95,7 +97,7 @@ export default {
         this.listOpen = false;
       }
     },
-    onArrowDown(evt) {
+    onArrowDown() {
       if (this.arrowCounter < this.searchResults.length) {
         this.arrowCounter = this.arrowCounter + 1;
       }
@@ -126,3 +128,35 @@ export default {
   }
 };
 </script>
+
+<style>
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-results {
+  padding: 0;
+  margin: 0;
+  border: 1px solid lightgrey;
+  border-radius: bottom 2px;
+  overflow: auto;
+  background-color: white;
+  position: absolute;
+  z-index: 2000;
+  width: 100%;
+}
+
+.autocomplete-result {
+  list-style: none;
+  text-align: left;
+  padding: 8px 2px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.autocomplete-result.is-active,
+.autocomplete-result:hover {
+  background-color: #f27405;
+  color: white;
+}
+</style>
