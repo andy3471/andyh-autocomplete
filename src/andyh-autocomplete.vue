@@ -21,9 +21,7 @@
         @input="searchTexts"
         class="autocomplete-result"
         :class="{ 'is-active': i === arrowCounter }"
-      >
-        {{ object.name }}
-      </li>
+      >{{ object.name }}</li>
     </ul>
   </div>
 </template>
@@ -33,21 +31,23 @@ import axios from "axios";
 
 export default {
   props: {
-    placeholder: {
+    value: {
       type: String,
-      required: true
+      default: ""
+    },
+    placeholder: {
+      type: String
     },
     name: {
       type: String,
-      required: true
+      default: "autocomplete"
     },
     id: {
       type: String,
-      required: true
+      default: "autocomplete"
     },
     classes: {
-      type: String,
-      required: true
+      type: String
     },
     autocompleteUrl: {
       type: String,
@@ -55,13 +55,13 @@ export default {
     },
     required: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
     return {
       listOpen: false,
-      textInput: null,
+      textInput: this.value,
       searchResults: [],
       arrowCounter: -1
     };
@@ -124,6 +124,7 @@ export default {
   watch: {
     textInput() {
       this.searchTexts();
+      this.$emit("input", this.textInput);
     }
   }
 };
