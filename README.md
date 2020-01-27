@@ -2,6 +2,8 @@
 
 This is a simple Auto Complete component written in Vue JS.
 
+![ScreenShot](https://raw.github.com/andy3471/andyh-autocomplete/master/docs/img/autocomplete-default.jpg)
+
 ## Install
 
 Install with NPM with:
