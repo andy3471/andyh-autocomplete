@@ -38,7 +38,7 @@ You can use the Date Picker with V-model to your own data
 
 You must define where to fetch the results from. The component will append the text input to the URL, so for example:
 
-    <auto-complete :autocompleteUrl="https://somewebsite.com/object/"></auto-complete>
+    <auto-complete :url="https://somewebsite.com/object/"></auto-complete>
 
 Would query the URL https://somewebsite.com/object/apples, if you have 'apples' typed in the search. This is what populates the dropdown list of search options. This server should return an array of search results, formatted in JSON.
 

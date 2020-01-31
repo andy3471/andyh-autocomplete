@@ -3,6 +3,7 @@
     <input
       type="text"
       v-model="textInput"
+      class="ah-ac"
       :class="classes"
       :id="id"
       :name="name"
@@ -49,9 +50,9 @@ export default {
     classes: {
       type: String
     },
-    autocompleteUrl: {
+    url: {
       type: String,
-      default: "/autocomplete/objects/"
+      default: "https://andyh.app/autocomplete/fruit/"
     },
     required: {
       type: Boolean,
@@ -68,9 +69,8 @@ export default {
   },
   methods: {
     searchTexts() {
-      this.$emit("ObjectName", this.textInput);
       if (this.textInput.length > 2) {
-        axios.get(this.autocompleteUrl + this.textInput).then(response => {
+        axios.get(this.url + this.textInput).then(response => {
           this.searchResults = response.data;
           if (
             this.searchResults.length == 1 &&
@@ -131,6 +131,18 @@ export default {
 </script>
 
 <style>
+.ah-ac {
+  width: 100%;
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: .15rem;
+  line-height: 1.5;
+}
+
 .autocomplete {
   position: relative;
 }
