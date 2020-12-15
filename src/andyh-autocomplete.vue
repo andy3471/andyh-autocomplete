@@ -1,5 +1,5 @@
 <template>
-  <div class="autocomplete">
+  <div class="autocomplete" :style="cssVars">
     <input
       type="text"
       v-model="textInput"
@@ -57,6 +57,9 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    color: {
+      default: '#2a438c'
     }
   },
   data() {
@@ -121,6 +124,13 @@ export default {
   destroyed() {
     document.removeEventListener("click", this.handleClickOutside);
   },
+  computed: {
+    cssVars() {
+      return {
+        '--color': this.color
+      }
+    }
+  },
   watch: {
     textInput() {
       this.searchTexts();
@@ -130,7 +140,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ah-ac {
   width: 100%;
   display: block;
@@ -169,7 +179,7 @@ export default {
 
 .autocomplete-result.is-active,
 .autocomplete-result:hover {
-  background-color: #f27405;
+  background-color: var(--color);
   color: white;
 }
 </style>

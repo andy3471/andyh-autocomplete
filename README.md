@@ -71,3 +71,10 @@ You can define additional classes to the textbox, to add styling with the Classe
 You can define the input as required with the required prop.
 
     <auto-complete :required="true"></auto-complete>
+
+
+## Setting the accent color
+
+You can set the accent color with the following prop
+
+    <auto-complete :color="#fec107"></auto-complete>

@@ -1,6 +1,6 @@
 {
     "name": "andyh-autocomplete",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Simple Vue JS Auto Complete Search",
     "Author": "AndyH",
     "main": "dist/andyh-autocomplete.umd.js",
