@@ -13,6 +13,7 @@
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.enter="onEnter"
+      @input="searchTexts()"
     />
     <ul v-show="listOpen" class="autocomplete-results">
       <li
@@ -136,12 +137,6 @@ export default {
       return {
         '--color': this.color
       }
-    }
-  },
-  watch: {
-    textInput() {
-      this.searchTexts();
-      this.$emit("input", this.textInput);
     }
   }
 };
