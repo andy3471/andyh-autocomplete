@@ -67,23 +67,30 @@ export default {
       listOpen: false,
       textInput: this.value,
       searchResults: [],
-      arrowCounter: -1
+      arrowCounter: -1,
     };
   },
   methods: {
     searchTexts() {
       if (this.textInput.length > 2) {
-        axios.get(this.url + this.textInput).then(response => {
-          this.searchResults = response.data;
-          if (
-            this.searchResults.length == 1 &&
-            this.searchResults[0].name == this.textInput
-          ) {
-            this.listOpen = false;
-          } else {
-            this.listOpen = true;
+        var search = this.textInput
+        setTimeout(() => { 
+          if (search == this.textInput) {
+            this.isHolding = false
+
+            axios.get(this.url + this.textInput).then(response => {
+              this.searchResults = response.data;
+              if (
+                this.searchResults.length == 1 &&
+                this.searchResults[0].name == this.textInput
+              ) {
+                this.listOpen = false;
+              } else {
+                this.listOpen = true;
+              }
+            });
           }
-        });
+         }, 500);
       } else {
         this.searchResults = [];
       }
