@@ -142,7 +142,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .ah-ac {
   width: 100%;
   display: block;
