@@ -138,6 +138,11 @@ export default {
         '--color': this.color
       }
     }
+  },
+  watch: {
+    textInput: function() {
+      this.$emit("input", this.textInput);
+    }
   }
 };
 </script>
